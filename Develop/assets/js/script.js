@@ -46,42 +46,35 @@ var colorTask = function() {
     for (i = 1; i < 10; i++){
     // get string representing time for each time block
     var test = $("#row" + i).find("h6").html();
+    // Turn this time into a date object
     var test2 = moment(test, "HHA");
+    // format so it only displays military hours
     var taskHour = test2.format("HH");
-    //console.log(test2.format("HH:mm"));
-    console.log(taskHour);
 
     var now = moment().format("HH");
-    //.format("HH:mm");
-    console.log(now);
-
-    //console.log(now);
-    /*
-    var nowTest = moment().format("HH:mm");
-    var difference2 = nowTest.diff(test2);
-    console.log(difference2);
-        */
-
-
-
-
+    // Create a reference for the textarea to be colored
     var coloredArea = $("#row" + i).find("textarea");
+    // Find the difference between the task hour and the current time
     var difference = now - taskHour;
- 
-    
+
+    // Conditional statements to color the rows
     if (now === taskHour) {
-        console.log("The time is now");
+        coloredArea.removeClass("past future");
         coloredArea.addClass("present");
     } else if (difference > 0) {
-        console.log("past");
+        coloredArea.removeClass("future present");
         coloredArea.addClass("past");
     } else if (difference < 0){
-        console.log("future");
+        coloredArea.removeClass("past present");
         coloredArea.addClass("future");
     } 
 }
 };
 
+// Check task statuses every 5 minutes
+setInterval(function() {
+    colorTask();
+}, 300000);
 
 loadTasks();
 colorTask();
