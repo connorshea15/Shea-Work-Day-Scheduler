@@ -41,7 +41,6 @@ $(".row").on("click", ".saveBtn", function() {
         identifier: taskId
     });
 
-    console.log(tasks);
     saveTasks();
 });
 
@@ -79,7 +78,7 @@ var colorTask = function() {
 // Check task statuses every 5 minutes
 setInterval(function() {
     colorTask();
-}, 300000);
+}, 60000);
 
 loadTasks();
 colorTask();
