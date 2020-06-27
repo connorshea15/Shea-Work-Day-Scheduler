@@ -9,6 +9,11 @@ $("#currentDay").append(moment().format('dddd, MMMM Do'));
 var loadTasks = function() {
     tasks = JSON.parse(localStorage.getItem("tasks"));
 
+    // if local storage is null, recreate the array to hold tasks
+    if (!tasks) {
+        tasks = [];
+    }
+
     // Loop through our saved tasks and assign text to proper textareas
     for (i = 0; i < tasks.length; i++) {
         // Grab the id of each object in tasks array
