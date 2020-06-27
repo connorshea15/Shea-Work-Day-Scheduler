@@ -4,7 +4,9 @@
 $("#currentDay").append(moment().format('dddd, MMMM Do'));
 
 // I need to create a function to save the shiz to local storage
-$(".saveBtn").on("click", "textarea", function() {
+$(".row").on("click", ".saveBtn", function() {
+    // Grab the text from the task input
+    newTask = $(this).prev().val().trim();
+    console.log(newTask);
     
-
 });
