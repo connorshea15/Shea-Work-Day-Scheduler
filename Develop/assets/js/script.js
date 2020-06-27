@@ -38,7 +38,11 @@ $(".row").on("click", ".saveBtn", function() {
 
     console.log(tasks);
     saveTasks();
-    
 });
+
+var colorTask = function() {
+
+};
+
 
 loadTasks();
