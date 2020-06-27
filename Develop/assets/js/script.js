@@ -5,15 +5,20 @@ var tasks = [];
 // Display the current day at the top of the page
 $("#currentDay").append(moment().format('dddd, MMMM Do'));
 
+// populates textareas with respective tasks from local storage
 var loadTasks = function() {
     tasks = JSON.parse(localStorage.getItem("tasks"));
 
+    // Loop through our saved tasks and assign text to proper textareas
     for (i = 0; i < tasks.length; i++) {
-        console.log(tasks[i]);
+        // Grab the id of each object in tasks array
+        var taskId = tasks[i].identifier;
+        // Find the textarea with the same id
+        var test = $("#" + taskId);
+        // Set the textarea to the saved task text
+        test.val(tasks[i].text);
     }
-
 };
-
 
 // Function to save tasks to local storage
 var saveTasks = function() {
