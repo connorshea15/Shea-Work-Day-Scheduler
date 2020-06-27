@@ -46,13 +46,40 @@ var colorTask = function() {
     for (i = 1; i < 10; i++){
     // get string representing time for each time block
     var test = $("#row" + i).find("h6").html();
-    var test2 = moment(test, "HH:mm");
-    console.log(test2.format("HH:mm"));
+    var test2 = moment(test, "HHA");
+    var taskHour = test2.format("HH");
+    //console.log(test2.format("HH:mm"));
+    console.log(taskHour);
 
-    var now = moment().format("HH:mm");
-
+    var now = moment().format("HH");
+    //.format("HH:mm");
     console.log(now);
-    }
+
+    //console.log(now);
+    /*
+    var nowTest = moment().format("HH:mm");
+    var difference2 = nowTest.diff(test2);
+    console.log(difference2);
+        */
+
+
+
+
+    var coloredArea = $("#row" + i).find("textarea");
+    var difference = now - taskHour;
+ 
+    
+    if (now === taskHour) {
+        console.log("The time is now");
+        coloredArea.addClass("present");
+    } else if (difference > 0) {
+        console.log("past");
+        coloredArea.addClass("past");
+    } else if (difference < 0){
+        console.log("future");
+        coloredArea.addClass("future");
+    } 
+}
 };
 
 
