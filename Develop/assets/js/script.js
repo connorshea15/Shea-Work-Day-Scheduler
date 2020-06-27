@@ -45,11 +45,11 @@ var colorTask = function() {
     //iterate through this loop 9 times to check status of each task time
     for (i = 1; i < 10; i++){
     // get string representing time for each time block
-    var test = $("#row" + i).find("h6").html();
+    var hourString = $("#row" + i).find("h6").html();
     // Turn this time into a date object
-    var test2 = moment(test, "HHA");
+    var hourObject = moment(hourString, "HHA");
     // format so it only displays military hours
-    var taskHour = test2.format("HH");
+    var taskHour = hourObject.format("HH");
 
     var now = moment().format("HH");
     // Create a reference for the textarea to be colored
