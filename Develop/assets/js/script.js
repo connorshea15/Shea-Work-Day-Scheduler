@@ -41,8 +41,19 @@ $(".row").on("click", ".saveBtn", function() {
 });
 
 var colorTask = function() {
+    //iterate through this loop 9 times to check status of each task time
+    for (i = 1; i < 10; i++){
+    // get string representing time for each time block
+    var test = $("#row" + i).find("h6").html();
+    var test2 = moment(test, "HH:mm");
+    console.log(test2.format("HH:mm"));
 
+    var now = moment().format("HH:mm");
+
+    console.log(now);
+    }
 };
 
 
 loadTasks();
+colorTask();
