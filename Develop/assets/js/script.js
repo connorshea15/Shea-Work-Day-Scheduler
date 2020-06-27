@@ -40,6 +40,7 @@ $(".row").on("click", ".saveBtn", function() {
     saveTasks();
 });
 
+// Function to color-code my tasks
 var colorTask = function() {
     //iterate through this loop 9 times to check status of each task time
     for (i = 1; i < 10; i++){
